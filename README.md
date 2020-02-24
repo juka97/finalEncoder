@@ -10,6 +10,8 @@ These instructions will get you a copy of the project up and running on your loc
 2. In terminal run npm install
 3. Run project with npm start
 
+Project starts on localhost:3000
+
 # ALGORITHM
 
   Write a simple encoder() function that will accept a string and the output will represent
@@ -18,8 +20,8 @@ successive characters as character and single digit count . For example, the str
 You can assume the string to be encoded has no digits and consists solely of alphabetic character.
 
 # TESTS
-Testing using Mocha framework
-simply call to run tests
+Testing using Mocha framework.
+Simply call to run tests:
 ./node_modules/.bin/mocha
 
 # Built With
