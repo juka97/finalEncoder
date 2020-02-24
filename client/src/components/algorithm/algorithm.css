@@ -2,16 +2,33 @@
     text-transform: uppercase;
 }
 
-.window {
+.main-encoder {
+  position: center;
+  background-color: #56baed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.window-encoder {
     -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
   background: #fff;
   width: 40%;
+  height: 19vh;
   max-height: 40%;
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
+  margin-bottom: 5vh;
+}
+
+input {
   text-align: center;
 }
 

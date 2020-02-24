@@ -3,14 +3,12 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
-import {Col, Button, Form, FormGroup, Label, Input, FormText,Navbar} from 'reactstrap';
 import Login from "./components/login/loginForm"
 import Algorithm from "./components/algorithm/algorithm"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Redirect } from 'react-router';
-import { TOKEN, getToken } from "./components/constants/constants";
+import { getToken } from "./components/constants/constants";
 
 
 

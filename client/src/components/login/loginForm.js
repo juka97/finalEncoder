@@ -1,5 +1,5 @@
 import React from 'react';
-import {Col, Button, Form, FormGroup, Label, Input, FormText,Navbar} from 'reactstrap';
+import {FormGroup, Input} from 'reactstrap';
 import './loginForm.css';
 import {FormErrors} from './FormErrors';
 import axios from 'axios';
@@ -12,7 +12,7 @@ export default class LoginForm extends React.Component {
         this.state = {
             email:'',
             password:'',
-            formErrors: {Email: '', Password: ''},
+            formErrors: {email: '', password: ''},
             emailValid: false,
             passwordValid: false,
             formValid: false
@@ -22,30 +22,27 @@ export default class LoginForm extends React.Component {
     handleOnChange = e => {
         const name = e.target.name;
         const value = e.target.value;
-        
         this.setState({[name]: value}, 
             () => { this.validateField(name, value) });
     };
 
     handleOnPress = (event) => {
-        if(event.key === 'Enter') {
+        if(event.key === 'Enter' && this.state.formValid) {
             this.handleSubmit()
         }
     }
 
     handleSubmit = async event => {
-
         axios
             .post(LOGIN_POST, {email:this.state.email, password:this.state.password})
             .then(res => {
                 if(res.status===200){
                     localStorage.setItem(TOKEN, res.data.token);
                     this.props.history.push(ALGORITHM);
-                    
                     console.log(res.data.token);
                 }
                 else {
-                    alert("Error");
+                    console.log("error");
                 }
             })
 

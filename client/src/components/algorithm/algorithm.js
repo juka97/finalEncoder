@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Button, Form, FormGroup, Label, Input, FormText, } from 'reactstrap';
+import { Input} from 'reactstrap';
 import './algorithm.css';
 import axios from 'axios';
 import { TOKEN, LOGIN, ENCODE_POST, getToken } from '../constants/constants';
@@ -28,14 +28,14 @@ export default class Algorithm extends React.Component {
             'authorization': getToken()
         }
         axios
-            .post(ENCODE_POST, { input: this.state.input }, {
+            .post(ENCODE_POST, { input: this.state.input.toLocaleUpperCase() }, {
                 headers: headers
             })
 
             .then(res => {
                 if (res.status === 200) {
                     this.state.output = res.data.encode;
-                    this.setState({output:res.data.encode});
+                    this.setState({ output: res.data.encode });
                 }
             }).catch(error => {
                 this.props.history.push(LOGIN);
@@ -47,8 +47,8 @@ export default class Algorithm extends React.Component {
 
     render() {
         return (
-            <div class="main">
-                <div class="window">
+            <div class="main-encoder">
+                <div class="window-encoder">
                     <h1>Encoder</h1>
 
                     <Input type='text' id='encoder' name='input' placeholder='Input'
@@ -59,7 +59,7 @@ export default class Algorithm extends React.Component {
                         onClick={this.handleSubmit}
                         disabled={!this.state.input}>Submit</button>
                 </div>
-        {this.state.output ? <div>{this.state.output}</div> : null}
+                {this.state.output ? <h2>{this.state.output}</h2> : null}
             </div>
         );
     }
